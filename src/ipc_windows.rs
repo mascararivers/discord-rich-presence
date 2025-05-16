@@ -37,7 +37,7 @@ impl DiscordIpcClient {
 impl DiscordIpc for DiscordIpcClient {
     fn connect_ipc(&mut self) -> Result<()> {
         for i in 0..10 {
-            let path = PathBuf::from(format!(r"\\.\pipe\discord-ipc-{}", i));
+            let path = PathBuf::from(format!(r"\\.\\pipe\\discord-ipc-{}", i));
 
             match OpenOptions::new().access_mode(0x3).open(&path) {
                 Ok(handle) => {
